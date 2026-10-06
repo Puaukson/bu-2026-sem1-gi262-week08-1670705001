@@ -26,18 +26,28 @@ using UnityEngine.InputSystem;
         //                 └── FireExplosion
 
         // 1. set the nextSkills for each skill
+        attack = new Skill("Attack");
+        attack.isAvailable = true;
 
         // [0] Attack -> FireStorm
-
+        fireStorm = new Skill("FireStorm");
         // [1] FireStorm -> FireBlast
-
+        fireBlast = new Skill("FireBlast");
         // [2] FireStorm -> FireBall
-
+        fireBall = new Skill("FireBall");
         // [3] FireBall -> FireWave
-
+        fireWave = new Skill("FireWave");
         // [4] FireWave -> FireExplosion
-
+        fireExplosion = new Skill("FireExplosion");
         // [5] Attack -> FireStorm
+        fireStorm.nextSkills.Add(fireBall);
+        fireStorm.nextSkills.Add(fireBlast);
+
+        fireBlast.nextSkills.Add(fireWave);
+        fireWave.nextSkills.Add(fireExplosion);
+
+        attack.nextSkills.Add(fireStorm);
+
 
         this.attackSkillTree = new SkillTree(attack);
         }

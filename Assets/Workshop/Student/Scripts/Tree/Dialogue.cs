@@ -11,6 +11,8 @@ using UnityEngine;
         public DialogueNode(string text)
         {
             // 1. set the text of the node and initialize the nexts dictionary
+            this.text = text;
+        
 
         }
 
